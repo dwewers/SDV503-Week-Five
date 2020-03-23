@@ -61,13 +61,17 @@ for (let i = 0; ; i++) {
 
 //example 1
 let c = 0;
-mark: for (let i = 0; i < 5; i++)
+mark: for (let i = 0; i < 5; i++) {
+  console.log(i);
   inner: for (let j = 0; j < 5; j++) {
+    console.log(j);
     c++;
+    console.log(c++);
     {
       if (i == 2) break mark;
     }
   }
+}
 console.log(c);
 
 //example 2
