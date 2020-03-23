@@ -56,3 +56,27 @@ for (let i = 0; ; i++) {
   console.log("loop");
   break;
 }
+
+//Breaking to a Label
+
+//example 1
+let c = 0;
+mark: for (let i = 0; i < 5; i++)
+  inner: for (let j = 0; j < 5; j++) {
+    c++;
+    {
+      if (i == 2) break mark;
+    }
+  }
+console.log(c);
+
+//example 2
+let b = 0;
+mark: for (let i = 0; i < 5; i++)
+  inner: for (let j = 0; j < 5; j++) {
+    b++;
+    {
+      if (i == 2) break inner;
+    }
+  }
+console.log(b);
