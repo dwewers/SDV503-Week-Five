@@ -84,3 +84,77 @@ mark: for (let i = 0; i < 5; i++)
     }
   }
 console.log(b);
+
+//Breaking from a labeled non for-loop scope
+
+block: {
+  console.log("before");
+  break block;
+  console.log("after");
+}
+
+// Generator function:
+function* mood() {
+  yield "I";
+  yield "want";
+  yield "to";
+  yield "cry";
+}
+for (let value of mood()) console.log(value);
+
+//for loops and strings
+let string = "awesomeness";
+for (let value of string) console.log(value);
+
+//for…of Loops And Arrays
+let array = [0, 1, 2];
+for (let value of array) console.log(value);
+
+//for…of Loops And Objects
+let object = { a: 1, b: 2, c: 3 };
+for (let value of object) // Error: object is not iterable
+  console.log(value);
+
+//The Object.keys() method returns an array of
+//  a given object's own enumerable property names, iterated in the same order that a normal loop would.
+
+//The Object.values() method returns an array of a given object's own enumerable property values, in the
+//  same order as that provided by a for...in loop. (The only difference is that a for...in loop enumerates
+//  properties in the prototype chain as well.)
+
+//The Object.entries() method returns an array of a given object's own enumerable string-keyed property
+// [key, value] pairs, in the same order as that provided by a for...in loop. (The only important difference
+// is that a for...in loop enumerates properties in the prototype chain as well).
+
+//The order of the array returned by Object.entries() does not depend on how an object is defined. If there is a
+// need for certain ordering, then the array should be sorted first, like Object.entries(obj).sort((a, b) => b[0].localeCompare(a[0]));
+
+//keys
+const object1 = {
+  a: "somestring",
+  b: 42,
+  c: false
+};
+
+console.log(Object.keys(object1));
+// expected output: Array ["a", "b", "c"]
+
+//value
+const object1 = {
+  a: "somestring",
+  b: 42,
+  c: false
+};
+
+console.log(Object.values(object1));
+// expected output: Array ["somestring", 42, false]
+
+//entries
+const object1 = {
+  a: "somestring",
+  b: 42
+};
+
+for (let [key, value] of Object.entries(object1)) {
+  console.log(`${key}: ${value}`);
+}
